@@ -1,0 +1,13 @@
+{
+    "name": "_PUBLISHER_/_PROJECT_-project",
+    "description": "The base project repository for _PUBLISHER_/_PROJECT_ 12-factor apps and resources",
+    "type": "project",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "_NAME_",
+            "email": "_EMAIL_@example.com"
+        }
+    ],
+    "require": {}
+}
