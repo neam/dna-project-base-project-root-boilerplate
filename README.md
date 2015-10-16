@@ -37,6 +37,8 @@ Now you can open up a browser displaying the cms app included in the project:
 
     stack/open-browser.sh /
 
+See [docs/13-overview-urls.md](./docs/13-overview-urls.md) for more examples.
+
 #### Build & Deploy
 
 Follow the instructions in `_PROJECT_product/docs/52-deploy-tutum.md`
