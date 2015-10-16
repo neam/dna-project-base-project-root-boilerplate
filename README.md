@@ -13,7 +13,8 @@ Here is a script that will ensure boot2docker is up, start the stack, the db and
 
 Ensure docker is running (see _PROJECT_-product/docs/21-local-dev-first-time-set-up.md)
 
-    boot2docker up #(don't forget to copy the commands after "To connect the Docker client to the Docker daemon, please set" or open up a new terminal window if your computer is configured to run those commands when opening up new terminal windows)
+    docker-machine start adoveo
+    eval "$(docker-machine env adoveo)"
 
 First, open up a terminal window and step into _PROJECT_-product:
 
