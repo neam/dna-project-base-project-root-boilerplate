@@ -5,7 +5,7 @@ _PROJECT_
 
 ### Shortcut script
 
-Here is a script that will ensure boot2docker is up, start the stack, the db and initiate angular frontend local development (grunt etc):
+Here is a script that will ensure docker-machine is up, start the stack, the db and initiate angular frontend local development (grunt etc):
 
     stack/start-local-dev.sh
 
@@ -13,8 +13,8 @@ Here is a script that will ensure boot2docker is up, start the stack, the db and
 
 Ensure docker is running (see _PROJECT_-product/docs/21-local-dev-first-time-set-up.md)
 
-    docker-machine start adoveo
-    eval "$(docker-machine env adoveo)"
+    docker-machine start default
+    eval "$(docker-machine env default)"
 
 First, open up a terminal window and step into _PROJECT_-product:
 
@@ -41,7 +41,7 @@ See [docs/13-overview-urls.md](./docs/13-overview-urls.md) for more examples.
 
 #### Build & Deploy
 
-Follow the instructions in `_PROJECT_product/docs/52-deploy-tutum.md`
+Follow the instructions in `_PROJECT_-product/docs/52-deploy-tutum.md`
 
 ### Frontend
 
