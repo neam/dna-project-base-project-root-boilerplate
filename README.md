@@ -32,6 +32,7 @@ First time a DATA profile is used locally, it's database needs to be created:
 
     export DATA=example
     bin/ensure-db.sh
+    bin/reset-db.sh --force-s3-sync
 
 Now you can open up a browser displaying the cms app included in the project:
 
