@@ -1,7 +1,30 @@
 _PROJECT_
 ========
 
+This repository is the main source code repository for the _PROJECT_ platform. 
+
+## Setting up a new workstation
+
+Check out the source code:
+
+    git clone --recursive -b develop git@bitbucket.org:_PROJECT_/_PROJECT_-project.git
+    cd _PROJECT_-project
+
+Then follow the instructions in [_PROJECT_-product/docs/21-local-dev-first-time-set-up.md](./_PROJECT_-product/docs/21-local-dev-first-time-set-up.md)
+
 ## Local development
+
+You can refer to this readme for the following cheat-sheet of the most commonly used commands on a day-to-day basis. Detailed documentation is found in the `_PROJECT_-product/docs/` directory.  
+
+### Starting the day
+
+Run the following script in the `_PROJECT_-project` folder to fetch the latest development code in the project:
+
+    ./git-pull-recursive.sh
+
+Then, open up a terminal window and step into _PROJECT_-product, since the remaining commands and scripts in this readme are meant to run from there:
+
+    cd _PROJECT_-product
 
 ### Shortcut script
 
@@ -11,7 +34,7 @@ Here is a script that will ensure docker-machine is up, start the stack, the db 
 
 ### Full procedure
 
-Ensure docker is running (see _PROJECT_-product/docs/21-local-dev-first-time-set-up.md)
+Ensure docker is running (see [_PROJECT_-product/docs/21-local-dev-first-time-set-up.md](./_PROJECT_-product/docs/21-local-dev-first-time-set-up.md))
 
     docker-machine start default
     eval "$(docker-machine env default)"
@@ -31,14 +54,13 @@ Start a local "_PROJECT_-product" server:
 First time a DATA profile is used locally, it's database needs to be created:
 
     export DATA=example
-    bin/ensure-db.sh
-    bin/reset-db.sh --force-s3-sync
+    bin/ensure-and-reset-db-force-s3-sync.sh
 
-Now you can open up a browser displaying the cms app included in the project:
+Now you can open up the health checks in the browser:
 
     stack/open-browser.sh /
 
-See [docs/13-overview-urls.md](./docs/13-overview-urls.md) for more examples.
+See [_PROJECT_-product/docs/13-overview-urls.md](./_PROJECT_-product/docs/13-overview-urls.md) for more examples.
 
 #### Build & Deploy
 
@@ -80,7 +102,7 @@ This needs to be done before deployment:
 
 #### Deploy
 
-To production:
+To production (manager._PROJECT_.com):
 
     bin/angular-frontend-deploy.sh live
 
@@ -92,7 +114,7 @@ To stage:
 
 ### Local development offline
 
-In order to work locally without and active internet connection, you need to use a mock auth0 api server.
+In order to work locally without an active internet connection, you need to use a mock auth0 api server.
 
 First time only:
 
@@ -105,6 +127,8 @@ First time only:
 Every time, so that the server is actively running:
 
     api-mock ../auth0-mock-api/auth0-mock-api-blueprint.md --port 2999 --ssl-port 3000 --ssl-enable -ssl-host 127.0.0.1 --ssl-key ../auth0-mock-api/server.key --ssl-cert ../auth0-mock-api/server.crt --cors-disable false
+
+First time, you need to visit https://127.0.0.1:3000/tokeninfo an accept the self-signed certificate in each browser that you will be performing offline dev.
 
 To prevent having to generate and maintain mock authentication tokens, enable a data profile to be used offline by uncommented one of the LOCAL_OFFLINE_DATA lines in `.env`.
 
